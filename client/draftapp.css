@@ -1,0 +1,219 @@
+/*@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");*/
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('/Fonts/glyphicons-halflings-regular.eot');
+    src: url('/Fonts/glyphicons-halflings-regular.eot?') format('embedded-opentype'),
+
+    url('/Fonts/glyphicons-halflings-regular.woff') format('woff'),
+    url('/Fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+    url('/Fonts/glyphicons-halflings-regular.woff2') format('woff2'),
+    url('/Fonts/glyphicons-halflings-regular.svg') format('svg');
+}
+
+html,
+body{
+    font-family: 'Verdana, PT Sans';
+}
+
+#desktop-menu{
+  padding: 20px 0;
+}
+#desktop-menu ul {
+    background: #4a7740;
+    margin-bottom: 0;
+}
+#desktop-menu li {
+    display: inline-block;
+}
+#desktop-menu li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    color: white;
+    padding: 8px 15px;
+}
+.main{
+    margin-left: 3rem;
+
+}
+.relative{
+    position:relative;
+}
+
+.well{
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    background: #f4f5f6;
+    border-color: #ddd;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+.login-container{
+    padding: 40px !important;
+    margin: 20px 0;
+}
+
+.submit-btn{
+    font-weight: bold;
+    background-color: #4a7740;
+    border-color: #4a7740;
+    color: #FFFFFF;
+    align: right;
+}
+.welcome{
+    text-align: center;
+    color: #4a7740;
+    font-family: 'Verdana, PT Sans';
+    font-weight:bolder;
+    margin-top: 20px;
+}
+.intro-text{
+    color: #4a7740;
+    font-family: "Courier New, Tahoma";
+    font-weight: bold;
+}
+
+.nav-tabs .nav-link{
+    border-color: #4a7740;
+}
+.nav-tabs>li>a:hover, .nav-tabs>li>a:focus{
+    margin-right: 3px;
+    background: #ddd;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus,.nav-tabs > li.active > a:hover{
+    background: #4a7740 !important;
+    color: #fff !important;
+    border-color: #4a7740 !important;
+}
+
+.content-break{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #95c18b;
+}
+.ngdialog.ngdialog-theme-plain .ngdialog-content{
+    width: 300px !important;
+    border-color: #4a7740 !important;
+    border-radius: 7px;
+}
+
+.dialog-padding{
+    color: #4a7740 !important;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#mobile-menu-button{
+    margin-bottom:15px;
+}
+
+#mobile-menu-button button{
+    color: #4a7740
+}
+
+#main-menu {
+    padding:20px 0;
+}
+#main-menu ul {
+    background: #4a7740 !important;
+    margin-bottom:0;
+}
+/*#main-menu li.logout {*/
+    /*float:right;*/
+/*}*/
+#main-menu li {
+    display:block !important;
+}
+#main-menu li a {
+    text-decoration: none !important;
+    text-transform: uppercase;
+    display:block !important;
+    color: white !important;
+    padding:8px 15px;
+}
+
+#main-menu li a:hover, #main-menu li.active a {
+    background:#4a7740;
+}
+#main-menu li i {
+    display:none;
+}
+
+.center-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#mydiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px;  /* -1 * image height / 2 */
+    display: block;
+    width:64px;
+    height:64px;
+}
+
+.standard{
+    color: #333 !important;
+}
+
+#content_container {
+    background: #FFF;
+}
+
+.image-map{
+    width:100%;
+}
+
+/*@media all and (max-width: 767px) {*/
+    /*#main-menu {*/
+        /*padding:0;*/
+        /*margin:0 -15px;*/
+        /*position:absolute;*/
+        /*width:100%;*/
+        /*z-index:1;*/
+    /*}*/
+    /*#main-menu ul {*/
+        /*max-height:0;*/
+        /*overflow:hidden;*/
+        /*transition: max-height 0.7s;*/
+    /*}*/
+    /*#main-menu.mobile-open ul {*/
+        /*max-height:500px;*/
+        /*border-bottom:solid 1px #002c67;*/
+    /*}*/
+    /*#main-menu li {*/
+        /*display:block;*/
+        /*border-top:solid 1px #002c67;*/
+    /*}*/
+    /*#main-menu li.logout {*/
+        /*float:none;*/
+    /*}*/
+    /*#main-menu li i {*/
+        /*display:inline-block;*/
+        /*width:20px;*/
+
+    /*}*/
+    /*#main-menu li a {*/
+
+        /*padding:13px;*/
+
+    /*}*/
+    /*#main-menu li a:hover, #main-menu li.active a {*/
+
+    /*}*/
+/*}*/

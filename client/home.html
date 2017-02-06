@@ -1,0 +1,89 @@
+<div header></div>
+<div class="" ng-controller="homecontroller as vm">
+    <h2 class="intro-text">Home</h2>
+    <div>
+        <h4>Welcome {{vm.current.username}}</h4>
+    </div>
+    <div class="row">
+        <div ng-if="vm.current.profile.isAdmin">
+            <div class="col-sm-3" ng-show="!vm.draft">
+                <button class="btn btn-sm submit-btn"
+                        ng-click="vm.startDraft()">
+                    Start Draft
+                </button>
+            </div>
+            <div class="col-sm-3" ng-show="vm.draft">
+                <button class="btn btn-sm submit-btn"
+                        ng-click="vm.endDraft()">
+                    End Draft
+                </button>
+            </div>
+        </div>
+        <!--<div ng-if="!vm.current.profile.isAdmin" class="col-sm-3">&nbsp;</div>-->
+        <div class="col-sm-3 col-sm-offset-6" ng-show="vm.draft && vm.current.profile.isMember">
+            <form class="form-inline">
+                <div class="form-group">
+                    <select ng-options="blind.name as blind.name for blind in vm.draft.blinds | filter:{selected:false}"
+                            class="form-control" ng-model="vm.blindSelected">
+                        <option value="">
+                            Available Blinds
+                        </option>
+                    </select>
+                    <button class="btn btn-sm submit-btn"
+                            ng-click="vm.selectBlind()"
+                            ng-disabled="vm.current._id !== vm.tracker.userId && vm.draft.status !== 'open'"
+                            ng-show="!vm.isBlindPicked">
+                        Select Blind
+                    </button>
+                    <button class="btn btn-sm submit-btn"
+                            ng-click="vm.releaseBlind()"
+                            ng-show="vm.isBlindPicked">
+                        Release Blind
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="content-break"></div>
+    <div class="row">
+        <div class="col-md-6" style="margin-bottom: 15px;">
+            <img src="images/mysticmap.jpg" class="image-map"/>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-default">
+              <table class="table table-striped">
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        Pick Order
+                    </th>
+                    <th>
+                        Selected Blind
+                    </th>
+                </tr>
+                <tr ng-repeat="selection in vm.draft.selections track by $index"
+                    ng-class="{'alert alert-success': vm.tracker.userId == selection.userId,
+                                'alert alert-warning': vm.tracker.userId == selection.userId && vm.tracker.timeLeft < 20,
+                                'alert alert-danger': vm.tracker.userId == selection.userId && vm.tracker.timeLeft < 10,
+                                'standard':vm.draft.status=='open'}">
+                    <td>
+                       {{selection.username}}
+                    </td>
+                    <td>
+                       {{$index +1}}
+                    </td>
+                    <td>
+                       {{selection.blind}}
+                        <span ng-if="vm.tracker.userId == selection.userId && vm.draft.status !=='open'">
+                            Time Left: {{vm.timeLeft()}}
+                        </span>
+                    </td>
+                </tr>
+        </table>
+      </div>
+     </div>
+    </div>
+
+</div>

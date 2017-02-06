@@ -1,0 +1,61 @@
+<div header></div>
+<div class="main">
+    <div class="row">
+        <h2 class="intro-text">User Options</h2>
+    </div>
+    <div class="col-sm-7">
+        <div class="well login-container">
+          <div class="form-horizontal">
+              <form name="useroptionsform">
+                  <div class="form-group">
+                      <div class="row">
+                          <label for="name" class="col-sm-3">Name:</label>
+                          <div class="col-sm-9">
+                              <input type="text"
+                                     id="name"
+                                     class="form-control"
+                                     ng-model="current.profile.name">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <label for="username" class="col-sm-3">User Name:</label>
+                          <div class="col-sm-9">
+                              <input type="text"
+                                     id="username"
+                                     class="form-control"
+                                     ng-model="current.username">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <label for="email" class="col-sm-3">Email:</label>
+                          <div class="col-sm-9">
+                              <input type="email"
+                                     id="email"
+                                     class="form-control"
+                                     ng-model="current.emails[0].address">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <label for="password" class="col-sm-3">Password:</label>
+                          <div class="col-sm-9">
+                              <input type="password"
+                                     id="password"
+                                     class="form-control"
+                                     ng-model="current.password">
+                          </div>
+                      </div>
+                  </div>
+                  <button class="btn btn-sm submit-btn"
+                          type="submit"
+                          ng-click="updateUser()">Update</button>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div header></div>
+<h2 class="intro-text">Reports</h2>
+<div class="content-break"></div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default" ng-repeat="report in reports track by report.draftId">
+            <h3 style="padding-left: 8px;">{{report.draftDate | date : 'fullDate'}}</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        User Name
+                    </th>
+                    <th>
+                        Pick Order
+                    </th>
+                    <th>
+                        Selected Blind
+                    </th>
+                    <!--<th>-->
+                        <!--Date-->
+                    <!--</th>-->
+                </tr>
+                <tr ng-repeat="selection in report.selections">
+                    <td>
+                        {{selection.username}}
+                    </td>
+                    <td>
+                        {{selection.order + 1}}
+                    </td>
+                    <td>
+                        {{selection.blind}}
+                    </td>
+                    <!--<td>-->
+                       <!--{{selection.date| date : 'fullDate'}}-->
+                    <!--</td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

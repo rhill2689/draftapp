@@ -1,0 +1,51 @@
+<div class="">
+    <div class="hidden-xs"> <!-- desktop nav bar -->
+        <nav class="navbar navbar-static-top navbar-dark">
+            <div id="desktop-menu">
+                <ul class="list-unstyled">
+                    <li>
+                    <li><a href="#/home">Home</a></li>
+                    </li>
+                    <li>
+                        <a href="#/useroptions">User Options</a>
+                    </li>
+                    <li ng-if="adminStatus.isAdmin">
+                        <a href="#/admin">Administration</a>
+                    </li>
+                    <li>
+                        <a href="#/reports">Reports</a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="onLogout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero-image"></div>
+    </div>
+    <div id="mobile-menu-button" class="visible-xs hidden-lg hidden-md hidden-sm" >
+       <button class="menu-toggle btn btn-link" ng-click="mobileMenuOpen = !mobileMenuOpen" style="float:right; padding-right:0">
+           <img src="images/menu-icon.png" ng-hide="mobileMenuOpen" width="30" height="30"/>
+           <img src="images/remove-icon.png" ng-show="mobileMenuOpen" width="15" height="15"/>
+       </button>
+    </div>
+    <div id="main-menu" class="visible-xs hidden-lg hidden-md hidden-sm" ng-class="{'mobile-open':'mobileMenuOpen'}" ng-show="mobileMenuOpen">
+        <ul class="list-unstyled">
+            <li>
+                <a href="/home">Home</a>
+            </li>
+            <li>
+                <a href="/useroptions">User Options</a>
+            </li>
+            <li ng-if="adminStatus.isAdmin">
+                <a href="/admin">Administration</a>
+            </li>
+            <li>
+                <a href="/reports">Reports</a>
+            </li>
+            <li>
+                <a href="" ng-click="onLogout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>

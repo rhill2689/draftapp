@@ -1,0 +1,5 @@
+.meteor/local/
+.idea/
+node_modules/
+mup.js
+mup.json

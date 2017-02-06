@@ -1,0 +1,306 @@
+<div header></div>
+    <div class="main">
+        <div class="row">
+            <h2 class="intro-text">Administration</h2>
+            <uib-tabset>
+                <uib-tab index="0">
+                    <uib-tab-heading>
+                        Create User
+                    </uib-tab-heading>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="well login-container">
+                                <h4 class="center-header">Add New User</h4><br>
+                                <div class="form-horizontal">
+                                    <form name="newUserForm">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="username" class="col-sm-3">User Name:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="username"
+                                                           class="form-control"
+                                                           ng-model="newUser.username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="fullName" class="col-sm-3">Full Name:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="fullName"
+                                                           class="form-control"
+                                                           ng-model="newUser.profile.name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="email" class="col-sm-3">Email:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email"
+                                                           id="email"
+                                                           class="form-control"
+                                                           ng-model="newUser.email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="password" class="col-sm-3">Password:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password"
+                                                           id="password"
+                                                           class="form-control"
+                                                           ng-model="newUser.password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <strong class="col-sm-3">Is a Member:</strong>
+                                                <label>
+                                                    <input type="radio" name="member" ng-value=true ng-model="newUser.profile.isMember"> Yes
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="member" ng-value=false ng-model="newUser.profile.isMember"> No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <strong class="col-sm-3">Is an Admin:</strong>
+                                                <label>
+                                                    <input type="radio" name="admin" ng-value=true ng-model="newUser.profile.isAdmin"> Yes
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="admin" ng-value=false ng-model="newUser.profile.isAdmin"> No
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm submit-btn"
+                                                type="submit"
+                                                ng-click="onAddUser()">Create</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        Modify User
+                    </uib-tab-heading>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="well login-container">
+                                <h4 class="center-header">Modify Existing User</h4><br>
+                                <div class="form-horizontal">
+                                    <form name="modifyUserForm">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="lookupuser" class="col-sm-3">User Email:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="lookupuser"
+                                                           class="form-control"
+                                                           ng-model="search.email">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm submit-btn"
+                                                type="submit"
+                                                ng-click="onLookUpUser()">Find User
+                                        </button>
+                                        <div class="content-break"></div>
+                                        <div ng-show="userFound">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="modifyusername" class="col-sm-3">User Name:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="modifyusername"
+                                                           class="form-control"
+                                                           ng-model="modifyuser.username">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-repeat="email in modifyuser.emails track by $index">
+                                            <div class="row">
+                                                <label for="modifyemail{{$index}}" class="col-sm-3">Email {{$index + 1}}:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="modifyemail"
+                                                           id="modifyemail{{$index}}"
+                                                           class="form-control"
+                                                           ng-model="modifyuser.emails[$index].address">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="modifypassword" class="col-sm-3">Password:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="password"
+                                                           id="modifypassword"
+                                                           class="form-control"
+                                                           ng-model="modifyuser.password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="modifyname" class="col-sm-3">Member Name:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="modifyname"
+                                                           class="form-control"
+                                                           ng-model="modifyuser.profile.name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <strong class="col-sm-3">Is a Member:</strong>
+                                                    <label>
+                                                        <input type="radio" name="member" ng-value=true ng-model="modifyuser.profile.isMember"> Yes
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="member" ng-value=false ng-model="modifyuser.profile.isMember"> No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <strong class="col-sm-3">Is an Admin:</strong>
+                                                    <label>
+                                                        <input type="radio" name="admin" ng-value=true ng-model="modifyuser.profile.isAdmin"> Yes
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="admin" ng-value=false ng-model="modifyuser.profile.isAdmin"> No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        <button class="btn btn-sm submit-btn"
+                                                type="submit"
+                                                ng-click="onModifyUser()">Modify</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        Delete User
+                    </uib-tab-heading>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="well login-container">
+                                <h4 class="center-header">Delete Existing User</h4><br>
+                                <div class="form-horizontal">
+                                    <form name="modifyUserForm">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <label for="lookupuserdelete" class="col-sm-3">User Email:</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text"
+                                                           id="lookupuserdelete"
+                                                           class="form-control"
+                                                           ng-model="search.email">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm submit-btn"
+                                                type="submit"
+                                                ng-click="onLookUpUser()">Find User
+                                        </button>
+                                        <div class="content-break"></div>
+                                        <div ng-show="userFound">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label for="usernamedelete" class="col-sm-3">User Name:</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text"
+                                                               id="usernamedelete"
+                                                               class="form-control"
+                                                               ng-model="modifyuser.username">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" ng-repeat="email in modifyuser.emails track by $index">
+                                                <div class="row">
+                                                    <label for="emaildelete{{$index}}" class="col-sm-3">Email {{$index + 1}}:</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="email"
+                                                               id="emaildelete{{$index}}"
+                                                               class="form-control"
+                                                               ng-model="modifyuser.emails[$index].address">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <label for="memberdelete" class="col-sm-3">Member Name:</label>
+                                                    <div class="col-sm-9">
+                                                        <input type="text"
+                                                               id="memberdelete"
+                                                               class="form-control"
+                                                               ng-model="modifyuser.profile.name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-sm submit-btn"
+                                                    type="submit"
+                                                    ng-click="onDeleteUser()">Delete User</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        All Users
+                    </uib-tab-heading>
+                    <!-- List of all users goes here -->
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="well login-container">
+                                <div class="form-group">
+                                    <ul class="list-unstyled" ng-repeat="user in Users">
+                                        <li><strong>Username:</strong> {{user.username}}</li>
+                                        <li><strong>Email Address:</strong>  {{user.emails[0].address}}</li>
+                                        <li><strong>Full Name:</strong>  {{user.profile.name}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab>
+                    <uib-tab-heading>
+                        Testing
+                    </uib-tab-heading>
+                    <div class="row">
+
+                        <div class="col-sm-7">
+                            <div class="well login-container">
+                                <h2>For Testing only</h2>
+                                <p>This will clear out all Draft and Draft Reports Data, user data will not be affected</p>
+                                <button class="btn btn-sm submit-btn"
+                                        type="submit"
+                                        ng-click="clearData()">
+                                    Clear Draft Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>

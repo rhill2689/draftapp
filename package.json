@@ -1,0 +1,33 @@
+{
+  "name": "draftapp",
+  "version": "1.0.0",
+  "description": "fantasy sport style draft application",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-meteor": "^1.3.11",
+    "angular-route": "^1.5.8",
+    "angular-ui-bootstrap": "^2.1.3",
+    "babel-runtime": "^6.22.0",
+    "bcrypt": "^0.8.7",
+    "bootstrap": "^3.3.7",
+    "lodash": "^4.16.6",
+    "moment": "^2.16.0",
+    "ng-dialog": "^0.6.4",
+    "node-schedule": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "duckdraw"
+  ],
+  "author": "Ryan Hill",
+  "license": "ISC",
+  "homepage": ""
+}
